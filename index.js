@@ -64,6 +64,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}">
       <p>${movie.title}</p>
       <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
+      
       </a>
     `
   ).join("")
