@@ -1,15 +1,7 @@
-/**
- * 
- * @param {string} file_path
- * @returns {string}
- */
 
-function getIdFromMovie(file_path) {
- return file_path
-}
 const baseUrl = "https://image.tmdb.org/t/p/w500"
 
-const url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
+const url = [ 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1','https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'];
 const options = {
   method: 'GET',
   headers: {
@@ -18,42 +10,66 @@ const options = {
   }
 };
 
-const observer = new IntersectionObserver(function(entries){
-  entries.forEach(function(entry){
-      if(entry.isIntersecting) {
-        currentOffset = currentOffset + 30;
-        if (currentOffset < 20){
-          fetchMovie(currentOffset)
-        } else {
-          console.log("NOPE");
+// const observer = new IntersectionObserver(function(entries){
+//   entries.forEach(function(entry){
+//       if(entry.isIntersecting) {
+//         currentOffset = currentOffset + 30;
+//         if (currentOffset < 20){
+//           fetchMovie(currentOffset)
+//         } else {
+//           console.log("NOPE");
           
-        }
-      }  
-  })
-})
+//         }
+//       }  
+//   })
+// })
 
+let sectionElm1 = document.createElement("section")
+sectionElm1.className = "poplist"
 
-let sectionElm = document.createElement("section")
-sectionElm.className = "poplist"
+function fetchMovie(page){
 
-function fetchMovie(offset){
-
-fetch(`https://api.themoviedb.org/3/movie/now_playing?offset=${offset}language=en-US&page=1, options`)
+fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`, options)
 .then(function(response) {
   return response.json()
 }).then(
   function(data) {
-    sectionElm.innerHTML +=  data.results.map(movie => `
-        
-      <a>
-      <p>#${getIdFromMovie(movie.url)}</p>
-      <img data-imagesrc="${baseUrl}/${getIdFromPokemon(pop.url)}.png" alt="${pop.name}">
+    sectionElm1.innerHTML +=  data.results.map(movie => `
+      <a href="movie.html" class="details">
+      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}">
+      <p>${movie.title}</p>
+      <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
       </a>
-
-    `).join("")
-
- 
+    `
+  ).join("")
   }
   )
+  document.querySelector(".X_scroll").append(sectionElm1)
 }
-  document.querySelector("main").append(sectionElm)
+
+
+
+let sectionElm2 = document.createElement("section")
+sectionElm2.className = "movlist"
+
+function fetchAllMovie(page){
+
+fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, options)
+.then(function(response) {
+  return response.json()
+}).then(
+  function(data) {
+    sectionElm2.innerHTML +=  data.results.map(movie => `
+      <a class="details">
+      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}">
+      <p>${movie.title}</p>
+      <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
+      </a>
+    `
+  ).join("")
+  }
+  )
+  document.querySelector(".Y_scroll").append(sectionElm2)
+}
+fetchMovie(1)
+fetchAllMovie(1)

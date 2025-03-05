@@ -9,8 +9,8 @@ divElm.innerHTML = `
     <section></section> 
 </header>
 <main>
-   <section class="pop"></section> 
-   <section></section> 
+   <section class="X_scroll"></section> 
+   <section class="Y_scroll"></section> 
 </main>
 <footer>
     <section></section> 
