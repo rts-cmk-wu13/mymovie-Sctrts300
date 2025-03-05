@@ -7,7 +7,7 @@ divElm.innerHTML = `
     
 </header>
 <main>
-    
+   
 </main>
 <footer>created 2025</footer>
 `
