@@ -35,7 +35,7 @@ fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page
 }).then(
   function(data) {
     sectionElm1.innerHTML +=  data.results.map(movie => `
-      <a href="movie.html" class="details">
+      <a href="/movie.html?movie=${movie.id}" class="details">
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}">
       <p>${movie.title}</p>
       <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
@@ -60,10 +60,11 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
 }).then(
   function(data) {
     sectionElm2.innerHTML +=  data.results.map(movie => `
-      <a class="details">
+      <a href="/movie.html?movie=${movie.id} class="details">
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}">
       <p>${movie.title}</p>
       <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
+      
       
       </a>
     `

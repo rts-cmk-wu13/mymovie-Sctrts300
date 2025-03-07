@@ -18,15 +18,19 @@ let movie = params.get("movie");
 let sectionElm = document.createElement("section");
 sectionElm.className = "movie_details";
 
-fetch(`https://api.themoviedb.org/3/movie/$={movie}?language=en-US`)
+fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US`,options)
 .then(function(response) {
   return response.json()
 }).then(
-  function(data) {
-    sectionElm.innerHTML +=  data.results.map(movie => `
+  function(movie) {
+    console.log(movie);
+    
+    sectionElm.innerHTML +=  ` 
+
+      <p>${movie.title}</p>
+      <p>${movie.genre}</p>
 
     `
-  ).join("")
-  }
-  )
+  })
+
   document.querySelector("main").append(sectionElm)
