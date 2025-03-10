@@ -26,9 +26,9 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US`,options)
     console.log(movie);
     
     sectionElm.innerHTML +=  ` 
-
+      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
       <p>${movie.title}</p>
-      <p>${movie.genre}</p>
+      <p>${movie.overview}</p>
 
     `
   })

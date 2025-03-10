@@ -36,7 +36,7 @@ fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page
   function(data) {
     sectionElm1.innerHTML +=  data.results.map(movie => `
       <a href="/movie.html?movie=${movie.id}" class="details">
-      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}">
+      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
       <p>${movie.title}</p>
       <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
       </a>
@@ -61,11 +61,18 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
   function(data) {
     sectionElm2.innerHTML +=  data.results.map(movie => `
       <a href="/movie.html?movie=${movie.id} class="details">
-      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}">
+      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
       <p>${movie.title}</p>
       <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
       
+      <section class="genres">
+      ${movie.genre_ids.map(genre_id => {
+        let currentGenre = genres.find(genre => genre.id == genre_id)
+        console.log(currentGenre);
+        return `<span class="movielist_genre">${currentGenre.name}</span>` 
+        }).join(" ")}
       
+        </section>
       </a>
     `
   ).join("")
