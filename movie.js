@@ -43,6 +43,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
     sectionElm.innerHTML +=  ` 
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
       <p>${movie.title}</p>
+      <button></button>
       <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
       
       <section>
@@ -57,6 +58,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
       <p>${movie.original_language}</p>
       <p>${movieRating(countryElm)}</p>
       
+      <h2>Description</h2>
       <p>${movie.overview}</p>
     `
   })
