@@ -18,19 +18,58 @@ let movie = params.get("movie");
 let sectionElm = document.createElement("section");
 sectionElm.className = "movie_details";
 
-fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US`,options)
+
+fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_to_response=credits,release_dates`,options)
 .then(function(response) {
   return response.json()
+  
 }).then(
   function(movie) {
     console.log(movie);
+    let countryElm = "US";
+    function movieRating(countryElm){
+      const country = movie.release_dates.results.find(
+        (country) => country.iso_3166_1 === countryElm
+      );
+      let rating = "N/A";
+      if (country){
+        country.release_dates.forEach((release) =>{
+          if (release.certification){
+            rating = release.certification;
+          }
+        })
+      } else {
+        rating = rating;
+      }
+      return rating;
+    }
     
     sectionElm.innerHTML +=  ` 
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
       <p>${movie.title}</p>
+      <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
+      
+      <section>
+      ${movie.genres.map(function(genre) {
+        return `
+        <p class="myMovie__genre-text">${genre.name}</p>
+        `
+      }).join("")}
+      </section>
+      
+      <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
+      <p>${movie.original_language}</p>
+      <p>${movieRating(countryElm)}</p>
+      
       <p>${movie.overview}</p>
+
+      <section>
+
+      </section>
 
     `
   })
-
+  
   document.querySelector("main").append(sectionElm)
+
+

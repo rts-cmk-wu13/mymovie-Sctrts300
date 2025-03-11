@@ -10,20 +10,6 @@ const options = {
   }
 };
 
-// const observer = new IntersectionObserver(function(entries){
-//   entries.forEach(function(entry){
-//       if(entry.isIntersecting) {
-//         currentOffset = currentOffset + 30;
-//         if (currentOffset < 20){
-//           fetchMovie(currentOffset)
-//         } else {
-//           console.log("NOPE");
-          
-//         }
-//       }  
-//   })
-// })
-
 let sectionElm1 = document.createElement("section")
 sectionElm1.className = "poplist"
 
@@ -61,6 +47,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
   function(data) {
     sectionElm2.innerHTML +=  data.results.map(movie => `
       <a href="/movie.html?movie=${movie.id} class="details">
+      
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
       <p>${movie.title}</p>
       <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
@@ -68,17 +55,20 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
       <section class="genres">
       ${movie.genre_ids.map(genre_id => {
         let currentGenre = genres.find(genre => genre.id == genre_id)
-        console.log(currentGenre);
+        // console.log(currentGenre);
         return `<span class="movielist_genre">${currentGenre.name}</span>` 
         }).join(" ")}
-      
         </section>
+
+        <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
+        
       </a>
     `
   ).join("")
   }
   )
   document.querySelector(".Y_scroll").append(sectionElm2)
-}
+} console.log(Math.floor);
+
 fetchMovie(1)
 fetchAllMovie(1)
