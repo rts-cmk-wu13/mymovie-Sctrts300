@@ -10,19 +10,15 @@ const options = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NGY3YmE1NGIyZjlmYjViNzA3YzcwNmEwNWEzYjBhMSIsIm5iZiI6MTc0MDk4NjkzMi4yMjIwMDAxLCJzdWIiOiI2N2M1NWEzNDZjYTkwMzVhNmE3YTZkOGUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.jY-oBNqQk-JinkYxMTE5pqpmtkekXG1tQOMLao4EwoQ'
   }
 };
-
 let queryString = window.location.search;
 let params = new URLSearchParams(queryString);
 let movie = params.get("movie");
 
 let sectionElm = document.createElement("section");
 sectionElm.className = "movie_details";
-
-
 fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_to_response=credits,release_dates`,options)
 .then(function(response) {
   return response.json()
-  
 }).then(
   function(movie) {
     console.log(movie);
@@ -62,14 +58,37 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
       <p>${movieRating(countryElm)}</p>
       
       <p>${movie.overview}</p>
-
-      <section>
-
-      </section>
-
     `
   })
   
-  document.querySelector("main").append(sectionElm)
+  let sectionElm3 = document.createElement("section");
+  sectionElm3.className = "crew_details";
+  fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_to_response=credits,release_dates`,options)
+  .then(function(response) {
+    return response.json()
+    
+  }).then(
+    function(movie) {
+      console.log(movie);
+ 
+      sectionElm3.innerHTML +=  ` 
+      
+        <a class="crew_details">
+        ${movie.credits.cast.map(function(castMember){
+          return`
+          <figure>
+          <img src="${baseUrl}/${castMember.profile_path}" alt="" height="200" >
+          </figure>
+          <p>${castMember.name}</p>
+        `
+        }).join("")}
+        </a>
+
+      `
+    })
+
+
+  document.querySelector(".movie_details").append(sectionElm)
+  document.querySelector(".cast").append(sectionElm3)
 
 

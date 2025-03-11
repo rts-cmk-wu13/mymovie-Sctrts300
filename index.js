@@ -46,6 +46,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
 }).then(
   function(data) {
     sectionElm2.innerHTML +=  data.results.map(movie => `
+
       <a href="/movie.html?movie=${movie.id} class="details">
       
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
@@ -59,8 +60,6 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
         return `<span class="movielist_genre">${currentGenre.name}</span>` 
         }).join(" ")}
         </section>
-
-        <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
         
       </a>
     `
@@ -68,7 +67,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
   }
   )
   document.querySelector(".Y_scroll").append(sectionElm2)
-} console.log(Math.floor);
+}
 
 fetchMovie(1)
 fetchAllMovie(1)

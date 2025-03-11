@@ -4,9 +4,10 @@ divElm.id = !"root"
 
 divElm.innerHTML = `
 <header>
-    <section></section>
-    <section></section> 
-    <section></section> 
+<label class="switch">
+            <input type="checkbox" name="switch" id="switch">
+            <span class="slider"></span>
+        </label>
 </header>
 <main>
    <section class="X_scroll"></section> 
