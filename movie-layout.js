@@ -5,7 +5,9 @@ divElm.id = !"root"
 divElm.innerHTML = `
 <header>
    <section>
-      <button></button>
+      <a href="index.html">
+         <button>back</button>
+      </a>
       <label class="switch">
          <input type="checkbox" name="switch" id="switch">
          <span class="slider"></span>
