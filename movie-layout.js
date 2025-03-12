@@ -6,7 +6,7 @@ divElm.innerHTML = `
 <header>
    <section>
       <a href="index.html">
-         <button>back</button>
+         <i class="fa-solid fa-arrow-left"></i>
       </a>
       <label class="switch">
          <input type="checkbox" name="switch" id="switch">

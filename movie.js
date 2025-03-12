@@ -44,7 +44,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
       <p>${movie.title}</p>
       <button></button>
-      <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
+      <p><i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i> ${movie.vote_average.toFixed(1)}/10 IMDb</p>
       
       <section>
       ${movie.genres.map(function(genre) {

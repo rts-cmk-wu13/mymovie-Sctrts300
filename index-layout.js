@@ -2,9 +2,12 @@
 let divElm = document.createElement("div")
 divElm.id = !"root"
 
+
+
 divElm.innerHTML = `
 <header>
-    <button></button>
+    <br>
+    <i class="fa-solid fa-bars-staggered fa-xl"></i>
     <h1>MyMovies</h1>
     <label class="switch">
         <input type="checkbox" name="switch" id="switch">
@@ -29,9 +32,9 @@ divElm.innerHTML = `
 </main>
 <footer>
     <section>
-        <button></button>
-        <button></button>
-        <button></button>
+        <i class="fa-solid fa-film fa-3x"></i>
+        <i class="fa-solid fa-ticket fa-3x"></i>
+        <i class="fa-regular fa-bookmark fa-3x"></i>
     </section> 
     created 2025
 </footer>
