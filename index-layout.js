@@ -16,9 +16,9 @@ divElm.innerHTML = `
 </header>
 <main>
     <section>
-        <section>
+        <section class="now_showing">
             <H2>Now Showing</H2>
-            <button>See more</button>
+            <button class="see_more">See more</button>
         </section>
         <section class="X_scroll"></section> 
     </section>

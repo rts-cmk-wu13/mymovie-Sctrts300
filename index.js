@@ -22,7 +22,7 @@ fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page
   function(data) {
     sectionElm1.innerHTML +=  data.results.map(movie => `
       <a href="/movie.html?movie=${movie.id}" class="details">
-      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
+      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="250" >
       <p>${movie.title}</p>
       <p><i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i> ${movie.vote_average.toFixed(1)}/10 IMDb</p>
       </a>
@@ -49,7 +49,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
 
       <a href="/movie.html?movie=${movie.id} class="details">
       
-      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
+      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="200" >
       <p>${movie.title}</p>
       <p><i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i> ${movie.vote_average.toFixed(1)}/10 IMDb</p>
       
@@ -62,6 +62,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
         </section>
         
       </a>
+      <br>
     `
   ).join("")
   }

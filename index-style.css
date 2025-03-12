@@ -12,5 +12,21 @@ header{
     
 }
 
+.now_showing{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
 
-
+.see_more{
+    display: grid;
+    justify-self: end;
+    align-items: center;
+    height: 1.5rem;
+    width: 5rem;
+    border-radius: 1rem;
+    color: rgb(155, 154, 154);
+    border-color: rgb(155, 154, 154);
+}
