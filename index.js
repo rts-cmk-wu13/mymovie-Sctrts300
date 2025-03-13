@@ -23,7 +23,7 @@ fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page
     sectionElm1.innerHTML +=  data.results.map(movie => `
       <a href="/movie.html?movie=${movie.id}" class="details">
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="250" >
-      <p>${movie.title}</p>
+      <h3>${movie.title}</h3>
       <p><i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i> ${movie.vote_average.toFixed(1)}/10 IMDb</p>
       </a>
     `
@@ -48,17 +48,22 @@ fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, 
     sectionElm2.innerHTML +=  data.results.map(movie => `
 
       <a href="/movie.html?movie=${movie.id} class="details">
-      
-      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="200" >
-      <p>${movie.title}</p>
-      <p><i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i> ${movie.vote_average.toFixed(1)}/10 IMDb</p>
-      
-      <section class="genres">
-      ${movie.genre_ids.map(genre_id => {
-        let currentGenre = genres.find(genre => genre.id == genre_id)
-        // console.log(currentGenre);
-        return `<span class="movielist_genre">${currentGenre.name}</span>` 
+
+        <section class="artikel">
+          <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="200" >
+        
+          <section class="movie_details">
+          <h3>${movie.title}</h3>
+          <p><i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i> ${movie.vote_average.toFixed(1)}/10 IMDb</p>
+
+            <section class="genres">
+              ${movie.genre_ids.map(genre_id => {
+              let currentGenre = genres.find(genre => genre.id == genre_id)
+              // console.log(currentGenre);
+          return `<span class="movielist_genre">${currentGenre.name}</span>` 
         }).join(" ")}
+        </section>
+        </section>
         </section>
         
       </a>

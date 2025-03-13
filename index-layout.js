@@ -6,26 +6,27 @@ divElm.id = !"root"
 
 divElm.innerHTML = `
 <header>
-    <br>
+    <section class="header">
     <i class="fa-solid fa-bars-staggered fa-xl"></i>
     <h1>MyMovies</h1>
     <label class="switch">
         <input type="checkbox" name="switch" id="switch">
         <span class="slider"></span>
     </label>
+    </section>
 </header>
 <main>
     <section>
         <section class="now_showing">
-            <H2>Now Showing</H2>
+            <h2>Now Showing</h2>
             <button class="see_more">See more</button>
         </section>
         <section class="X_scroll"></section> 
     </section>
     <section>
-        <section>
+        <section class="now_showing">
             <h2>Popular</h2>
-            <button>See more</button>
+            <button class="see_more">See more</button>
         </section>
         <section class="Y_scroll"></section> 
     </section>

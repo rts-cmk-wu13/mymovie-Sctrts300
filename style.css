@@ -12,7 +12,7 @@ color-scheme: light dark;
     color-scheme: light;
 }
 
-html, input, textarea, button{
+html, input, textarea, button, h2, h3{
     color: light-dark(var(--dark-color), var(--light-color));
     background-color: light-dark(var(--light-color), var(--dark-color));
 }
@@ -22,6 +22,8 @@ input, textarea, button{
 }
 
 .switch {
+    display: grid;
+    justify-self: end;
     position: relative;
     display: inline-block;
     width: 60px;
