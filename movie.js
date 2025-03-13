@@ -42,8 +42,8 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
     
     sectionElm.innerHTML +=  ` 
       <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
-      <p>${movie.title}</p>
-      <button></button>
+      <h1>${movie.title}</h1>
+      
       <p><i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i> ${movie.vote_average.toFixed(1)}/10 IMDb</p>
       
       <section>
@@ -54,9 +54,14 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
       }).join("")}
       </section>
       
+      <section>
+      <p>Length</p>
+      <p>Language</p>
+      <p>Rating</p>
       <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
       <p>${movie.original_language}</p>
       <p>${movieRating(countryElm)}</p>
+      </section>
       
       <h2>Description</h2>
       <p>${movie.overview}</p>

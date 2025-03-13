@@ -32,13 +32,13 @@ divElm.innerHTML = `
     </section>
 </main>
 <footer>
-    <section>
+    <section class="foot">
         <i class="fa-solid fa-film fa-3x"></i>
         <i class="fa-solid fa-ticket fa-3x"></i>
         <i class="fa-regular fa-bookmark fa-3x"></i>
     </section> 
-    created 2025
 </footer>
+created 2025
 `
 
 document.querySelector("body").append(divElm)

@@ -1,5 +1,6 @@
 body{
     margin: 2rem;
+    margin-bottom: 8rem;
 }
 h1{
     display: grid;
@@ -35,8 +36,12 @@ h1{
     border-radius: 1rem;
     color: rgb(155, 154, 154);
     border-color: rgb(155, 154, 154);
+    background-color: rgba(155, 154, 154, 0.043);
 }
-
+.see_more:hover{
+    background-color: rgb(155, 154, 154);
+    color: rgb(255, 255, 255);
+}
 .artikel{
     display: grid;
     grid-template-columns: 10rem 22rem;
@@ -79,4 +84,28 @@ h3{
 p{
     font-family: sans-serif;
     color: rgb(155, 154, 154);
+}
+
+.fa-regular, .fa-ticket, .fa-film{
+    color: rgb(192, 192, 192);
+}
+.fa-regular:hover, .fa-ticket:hover, .fa-film:hover{
+    color: rgb(38, 9, 106);
+}
+
+.foot{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    background-color: white;
+}
+footer{
+    position: fixed;
+    bottom: -0;
+    right: 0;
+    width: 700px;
+    height: 150px;
+ 
 }
