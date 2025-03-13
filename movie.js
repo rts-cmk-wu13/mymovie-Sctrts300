@@ -42,7 +42,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
     
     sectionElm.innerHTML +=  `
       <section class="bigpic"> 
-        <img class="bigpicDave" src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
+        <img class="bigpicDave" src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="1000" >
       </section>
 
       <section class="body"> 

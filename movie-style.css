@@ -1,14 +1,14 @@
-body{
+html{
+    width: 100%;
     overflow: hidden;
     overflow-y: scroll;
+
 }
-.body{
-    margin: 2rem;
-}
+
 header{
     display: grid;
     grid-template-columns: 10fr 1fr;
-    width: 41rem;
+    width: 100%;
     margin-top: 2rem;
     position: absolute;
     margin-left: 2rem;
@@ -31,14 +31,13 @@ p{
 .bigpic{
     display: grid;
     justify-self: center;
-overflow: hidden;
-height: 30rem;
+    overflow: hidden;
+    height: 30rem;
+    width: 100%;
 
 }
 .bigpicDave{
-    display: grid;
-    height: 70rem;
-    margin: -1rem;
+    width: 100%;
 }
 
 .bookmark_h1{
@@ -62,6 +61,7 @@ height: 30rem;
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 1fr;
+    margin-right: 1rem;
 }
 .para{
     margin-top: -1rem;
