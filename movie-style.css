@@ -1,0 +1,146 @@
+body{
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.body{
+    margin: 2rem;
+}
+header{
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    width: 41rem;
+    margin-top: 2rem;
+    position: absolute;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+h1{
+    margin: 1rem;
+    margin-left: 0;
+    margin-bottom: 2rem;
+    font-family: sans-serif;
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+p{
+    font-family: sans-serif;
+}
+.bigpic{
+    display: grid;
+    justify-self: center;
+overflow: hidden;
+height: 30rem;
+
+}
+.bigpicDave{
+    display: grid;
+    height: 70rem;
+    margin: -1rem;
+}
+
+.bookmark_h1{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 1rem;
+}
+.fa-regular{
+    display: grid;
+    justify-self: end;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+}
+.fa-regular:hover{
+    color: rgb(71, 217, 31);
+}
+.back_btn{
+    color: rgba(245, 245, 245, 0.636);
+}
+.head_but{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+.para{
+    margin-top: -1rem;
+    font-family: sans-serif;
+    color: rgb(155, 154, 154);
+    line-height: 1.7rem;
+}
+.leftie{
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-content: left;
+}
+.genre_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+
+.myMovie__genre-text{
+    color: #88A4E8;
+    background-color: #DBE3FF;
+    padding: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 2rem;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+.info{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+}
+.no, .noway, .noman{
+    margin: 0.2rem;
+}
+.noway{
+    text-transform: uppercase;
+}
+.noman{
+    color: rgb(155, 154, 154);
+}
+.see_more{
+    display: grid;
+    justify-self: end;
+    align-items: center;
+    height: 1.5rem;
+    width: 5rem;
+    border-radius: 1rem;
+    color: rgb(155, 154, 154);
+    border-color: rgb(155, 154, 154);
+    background-color: rgba(155, 154, 154, 0.043);
+}
+.see_more:hover{
+    background-color: rgb(155, 154, 154);
+    color: white;
+}
+.casting{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: -1rem;
+}
+.crew_details{
+    display: grid;
+    margin-left: -0.5rem;
+    grid-template-columns: repeat( 4, 1fr);
+    width: 40rem;
+    height: 15rem;
+    overflow: hidden;
+    margin-bottom: 5rem;
+    
+}
+.pics{
+    margin: 1rem;
+}
+.pic{
+    border-radius: 0.5rem;
+    height: 11.5rem;
+}

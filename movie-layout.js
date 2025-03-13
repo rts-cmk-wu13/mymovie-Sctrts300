@@ -4,9 +4,9 @@ divElm.id = !"root"
 
 divElm.innerHTML = `
 <header>
-   <section>
-      <a href="index.html">
-         <i class="fa-solid fa-arrow-left"></i>
+   <section class="head_but">
+      <a class="back_btn" href="index.html">
+         <i class="fa-solid fa-arrow-left fa-2x"></i>
       </a>
       <label class="switch">
          <input type="checkbox" name="switch" id="switch">
@@ -16,9 +16,9 @@ divElm.innerHTML = `
 </header>
 <main>
    <section class="movie_details"></section>
-   <section>
+   <section class="casting">
    <h2>Cast</h2>
-   <button>See more</button>
+   <button class="see_more">See more</button>
    </section>
    <section class="cast"></section>
 </main>

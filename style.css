@@ -23,6 +23,7 @@ input, textarea, button{
 
 .switch {
     display: grid;
+    align-self: center;
     justify-self: end;
     position: relative;
     display: inline-block;

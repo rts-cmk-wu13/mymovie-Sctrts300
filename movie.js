@@ -40,31 +40,39 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
       return rating;
     }
     
-    sectionElm.innerHTML +=  ` 
-      <img src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
-      <h1>${movie.title}</h1>
-      
-      <p><i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i> ${movie.vote_average.toFixed(1)}/10 IMDb</p>
-      
-      <section>
-      ${movie.genres.map(function(genre) {
-        return `
-        <p class="myMovie__genre-text">${genre.name}</p>
-        `
-      }).join("")}
+    sectionElm.innerHTML +=  `
+      <section class="bigpic"> 
+        <img class="bigpicDave" src="${baseUrl}/${movie.poster_path}" alt="${movie.title}" height="300" >
       </section>
-      
-      <section>
-      <p>Length</p>
-      <p>Language</p>
-      <p>Rating</p>
-      <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
-      <p>${movie.original_language}</p>
-      <p>${movieRating(countryElm)}</p>
+
+      <section class="body"> 
+      <section class="bookmark_h1">
+        <h1>${movie.title}</h1>
+        <i class="fa-regular fa-bookmark fa-2x"></i>
+      </section>
+
+      <section class="leftie">
+        <p class="para"><i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i> ${movie.vote_average.toFixed(1)}/10 IMDb</p>
+        <section class="genre_grid">
+        ${movie.genres.map(function(genre) {
+          return `
+          <p class="myMovie__genre-text">${genre.name}</p>
+          `
+        }).join("")}
+        </section>
+      </section>
+
+      <section class="info">
+        <p class="noman">Length</p>
+        <p class="noman">Language</p>
+        <p class="noman">Rating</p>
+        <p class="no">${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
+        <p class="noway">${movie.original_language}</p>
+        <p class="no">${movieRating(countryElm)}</p>
       </section>
       
       <h2>Description</h2>
-      <p>${movie.overview}</p>
+      <p class="para">${movie.overview}</p>
     `
   })
   
@@ -83,14 +91,14 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
         <a class="crew_details">
         ${movie.credits.cast.map(function(castMember){
           return`
-          <figure>
-          <img src="${baseUrl}/${castMember.profile_path}" alt="" height="200" >
+          <figure class="pics">
+            <img class="pic" src="${baseUrl}/${castMember.profile_path}" alt="" >
+            <p>${castMember.name}</p>
           </figure>
-          <p>${castMember.name}</p>
         `
         }).join("")}
         </a>
-
+      </section>
       `
     })
 
